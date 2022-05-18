@@ -7,7 +7,7 @@ import prisma from '../../lib/prisma';
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const { email, password } = req.body
 
-    const user = prisma.user.findUnique({
+    const user = await prisma.user.findUnique({
         where: {
             email,
         },
